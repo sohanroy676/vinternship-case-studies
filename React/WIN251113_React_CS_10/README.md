@@ -1,6 +1,6 @@
 # React Case Study 10: Bundle Analysis
 
-### NPTEL Pinternship – IIT Ropar
+### NPTEL Vinternship – IIT Ropar
 
 **Sohan Roy Talari (WIN251113)**
 

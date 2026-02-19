@@ -1,6 +1,6 @@
 # React Case Study 4: State Management in React
 
-### NPTEL Pinternship – IIT Ropar
+### NPTEL Vinternship – IIT Ropar
 
 **Sohan Roy Talari (WIN251113)**
 

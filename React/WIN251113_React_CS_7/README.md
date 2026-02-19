@@ -1,6 +1,6 @@
 # React Case Study 7: Advanced State Management with Zustand
 
-### NPTEL Pinternship – IIT Ropar
+### NPTEL Vinternship – IIT Ropar
 
 **Sohan Roy Talari (WIN251113)**
 

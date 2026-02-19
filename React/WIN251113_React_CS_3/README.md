@@ -1,6 +1,6 @@
 # React Case Study 3: Routing
 
-### NPTEL Pinternship – IIT Ropar
+### NPTEL Vinternship – IIT Ropar
 
 **Sohan Roy Talari (WIN251113)**
 

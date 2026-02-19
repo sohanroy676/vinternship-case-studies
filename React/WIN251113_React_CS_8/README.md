@@ -1,6 +1,6 @@
 # React Case Study 8: Memoization
 
-### NPTEL Pinternship – IIT Ropar
+### NPTEL Vinternship – IIT Ropar
 
 **Sohan Roy Talari (WIN251113)**
 

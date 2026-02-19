@@ -1,6 +1,6 @@
 # React Case Study 6: Zustand Slices and Modular State Architecture
 
-### NPTEL Pinternship – IIT Ropar
+### NPTEL Vinternship – IIT Ropar
 
 **Sohan Roy Talari (WIN251113)**
 
