@@ -5,7 +5,7 @@ import redeemPoints from "../controllers/redeem.controller";
 
 const redeemRouter = Router();
 
-// Usage
+// Router for /redeem
 redeemRouter.post("/", validate(RedeemSchema), redeemPoints);
 
 export default redeemRouter;

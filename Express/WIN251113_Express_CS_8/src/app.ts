@@ -7,10 +7,6 @@ import { InMemoryBookRepository } from "./repositories/InMemoryBookRepository";
 const app = express();
 app.use(express.json());
 
-// Add a returnBook method to BookService and BookController.
-
-// Ensure the repository updates the book’s status when returned.
-
 // Initialize components
 const bookRepository = new InMemoryBookRepository();
 const bookService = new BookService(bookRepository);

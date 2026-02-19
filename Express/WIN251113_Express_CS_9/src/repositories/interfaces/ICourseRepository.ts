@@ -1,4 +1,3 @@
-// repositories/interfaces/ICourseRepository.ts
 import { Course } from "../../models/Course";
 
 export interface ICourseRepository {

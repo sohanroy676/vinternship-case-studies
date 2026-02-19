@@ -1,6 +1,7 @@
 import { RequestHandler } from "express";
 import { z } from "zod";
 
+// Middleware to validates the request body
 export default function validate<T extends z.ZodTypeAny>(schema: T): RequestHandler {
   return (req, res, next) => {
     const result = schema.safeParse(req.body);

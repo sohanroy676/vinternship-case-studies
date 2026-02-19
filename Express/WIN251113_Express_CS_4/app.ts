@@ -8,6 +8,7 @@ const app = express();
 
 app.use(express.json());
 
+// Handling the errors with their appropriate status codes and error messages
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof ApiError) {
     res.status(err.statusCode).json({
@@ -25,7 +26,9 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+// Mount redeem router at /redeem
 app.use("/redeem", redeemRouter);
+// Mount transfer router at /transfer
 app.use("/transfer", transferRouter);
 
 app.get("/", (req: Request, res: Response) => {

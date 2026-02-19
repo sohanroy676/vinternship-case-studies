@@ -3,6 +3,7 @@ import { findCustomer } from "../services/customer.service";
 import InsufficientPointsError from "../errors/insufficient-points.error";
 import CustomerNotFound from "../errors/customer-not-found.error";
 
+// Logic to redeem points
 const redeemPoints = (req: Request, res: Response) => {
   const customer = findCustomer(req.body.customerId);
   if (!customer) {

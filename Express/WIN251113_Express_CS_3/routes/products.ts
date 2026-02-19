@@ -8,6 +8,7 @@ interface Product {
   inStock: boolean;
 }
 
+// Mock data for testing
 let products: Product[] = [
   { id: "1", name: "Bananas", price: 1.5, inStock: true },
   { id: "2", name: "Apples", price: 2.0, inStock: false },
@@ -20,7 +21,7 @@ router.get("/", (req: Request, res: Response) => {
 
 // GET product by ID
 router.get("/:id", (req: Request, res: Response) => {
-  const product = products.find(p => p.id === req.params.id);
+  const product = products.find((p) => p.id === req.params.id);
   if (!product) {
     return res.status(404).json({ error: "Product not found" });
   }
@@ -45,8 +46,7 @@ router.post("/", (req: Request, res: Response) => {
 
 // PUT update product
 router.put("/:id", (req: Request, res: Response) => {
-
-  const productIndex = products.findIndex(p => p.id === req.params.id);
+  const productIndex = products.findIndex((p) => p.id === req.params.id);
   if (productIndex === -1) {
     return res.status(404).json({ error: "Product not found" });
   }
@@ -60,7 +60,7 @@ router.put("/:id", (req: Request, res: Response) => {
 
 // PATCH update product price
 router.patch("/:id/price", (req: Request, res: Response) => {
-  const product = products.find(p => p.id === req.params.id);
+  const product = products.find((p) => p.id === req.params.id);
   const { price } = req.body;
   if (!product) {
     return res.status(404).json({ error: "Product not found" });
@@ -75,24 +75,24 @@ router.patch("/:id/price", (req: Request, res: Response) => {
 // 1. Add a PATCH endpoint /products/:id/inStock to update only the inStock status of a product.
 // 2. Return 400 Bad Request if the new status is missing or not a boolean.
 router.patch("/:id/inStock", (req: Request, res: Response) => {
-  const product = products.find(p => p.id === req.params.id);
-  const {inStock} = req.body;
+  const product = products.find((p) => p.id === req.params.id);
+  const { inStock } = req.body;
   if (inStock === undefined) {
-    return res.status(400).json({error: "New status is missing"});
+    return res.status(400).json({ error: "New status is missing" });
   }
   if (typeof inStock !== "boolean") {
-    return res.status(400).json({error: "New status is not boolean"});
+    return res.status(400).json({ error: "New status is not boolean" });
   }
   if (!product) {
-    return res.status(400).json({error: "Product not found"});
+    return res.status(400).json({ error: "Product not found" });
   }
   product.inStock = inStock;
   res.status(200).json(product);
-})
+});
 
 // DELETE product
 router.delete("/:id", (req: Request, res: Response) => {
-  const productIndex = products.findIndex(p => p.id === req.params.id);
+  const productIndex = products.findIndex((p) => p.id === req.params.id);
   if (productIndex === -1) {
     return res.status(404).json({ error: "Product not found" });
   }

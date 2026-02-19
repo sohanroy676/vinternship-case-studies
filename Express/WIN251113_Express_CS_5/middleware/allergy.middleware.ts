@@ -12,8 +12,3 @@ export class AllergyMiddleware implements ExpressMiddlewareInterface {
     next();
   }
 }
-
-// // Attach to the order workflow
-// @UseBefore(AllergyMiddleware)
-// @Post("/orders")
-// createOrder(@Body() order: Order) { ... }

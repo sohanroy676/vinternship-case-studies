@@ -1,4 +1,3 @@
-// notifications/SMSService.ts
 import { Service } from "typedi";
 import { NotificationService } from "./NotificationService";
 

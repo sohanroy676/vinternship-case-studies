@@ -1,4 +1,3 @@
-// src/repositories/interfaces/IBookRepository.ts
 import { Book } from "../../models/Book";
 
 export interface IBookRepository {

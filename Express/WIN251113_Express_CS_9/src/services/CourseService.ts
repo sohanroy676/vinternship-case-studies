@@ -1,4 +1,3 @@
-// services/CourseService.ts
 import { ICourseRepository } from "../repositories/interfaces/ICourseRepository";
 
 export class CourseService {

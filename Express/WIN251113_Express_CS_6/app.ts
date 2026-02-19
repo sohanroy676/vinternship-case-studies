@@ -13,10 +13,10 @@ const app = express();
 
 app.use(express.json());
 
-// Add a middleware that checks if the patients insurance approval is present (req.body.insuranceApproved).
+// 1. Add a middleware that checks if the patients insurance approval is present (req.body.insuranceApproved).
 function insuranceCheck(req: Request, res: Response, next: NextFunction) {
   req.dischargeLog = req.dischargeLog || [];
-  // If not, return a 403 Forbidden with a clear error message.
+  // 2. If not, return a 403 Forbidden with a clear error message.
   if (!req.body.insuranceApproved) {
     return res.status(403).json({ error: "Insurance Approval required before discharge." });
   }
@@ -24,6 +24,7 @@ function insuranceCheck(req: Request, res: Response, next: NextFunction) {
   next();
 }
 
+// Middleware to log the discharge request
 function logDischargeRequest(req: Request, res: Response, next: NextFunction) {
   req.dischargeLog = req.dischargeLog || [];
   req.dischargeLog.push({ step: "requestReceived", time: new Date().toISOString() });
@@ -31,6 +32,7 @@ function logDischargeRequest(req: Request, res: Response, next: NextFunction) {
 }
 app.use(logDischargeRequest);
 
+// Middleware to ensure docter sign-off is present
 function doctorSignoffCheck(req: Request, res: Response, next: NextFunction) {
   req.dischargeLog = req.dischargeLog || [];
   if (!req.body.doctorSigned) {
@@ -40,6 +42,7 @@ function doctorSignoffCheck(req: Request, res: Response, next: NextFunction) {
   next();
 }
 
+// Middleware to ensure pharmacy review is present
 function pharmacyReview(req: Request, res: Response, next: NextFunction) {
   req.dischargeLog = req.dischargeLog || [];
   if (!req.body.pharmacyChecked) {
@@ -49,6 +52,7 @@ function pharmacyReview(req: Request, res: Response, next: NextFunction) {
   next();
 }
 
+// Middleware to ensure follow-up appointment is present
 function followupCheck(req: Request, res: Response, next: NextFunction) {
   req.dischargeLog = req.dischargeLog || [];
   if (!req.body.followupScheduled) {
@@ -58,6 +62,7 @@ function followupCheck(req: Request, res: Response, next: NextFunction) {
   next();
 }
 
+// Middleware to handle errors
 function errorHandler(err: Error, req: Request, res: Response, next: NextFunction) {
   console.error("Discharge log:", req.dischargeLog);
   res.status(500).json({ error: err.message || "Internal server error" });
@@ -85,6 +90,19 @@ app.post(
 
 app.use(errorHandler);
 
-app.listen(3000, () => console.log("Hospital system running on port 3000"));
+app.listen(3000, () => console.log("Hospital system running on http://localhost:3000"));
 
-// Test by sending a discharge request without insurance approval.
+// 3. Test by sending a discharge request without insurance approval.
+// Request:
+// POST http://localhost:3000/discharge
+// body:
+// {
+//   "doctorSigned": true,
+//   "pharmacyChecked": true,
+//   "followupScheduled": true
+// }
+//
+// OUTPUT:
+// {
+//   "error": "Insurance Approval required before discharge."
+// }

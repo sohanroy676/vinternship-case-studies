@@ -1,4 +1,3 @@
-// src/services/BookService.ts
 import { IBookRepository } from "../repositories/interfaces/IBookRepository";
 import { Book } from "../models/Book";
 

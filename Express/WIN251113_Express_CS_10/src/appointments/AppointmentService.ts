@@ -1,4 +1,3 @@
-// appointments/AppointmentService.ts
 import Container, { Service } from "typedi";
 import {
   NotificationService,

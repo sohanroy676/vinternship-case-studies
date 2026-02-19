@@ -1,4 +1,3 @@
-// src/repositories/InMemoryBookRepository.ts
 import { IBookRepository } from "./interfaces/IBookRepository";
 import { Book } from "../models/Book";
 

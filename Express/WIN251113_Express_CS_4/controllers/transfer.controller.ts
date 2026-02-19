@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import InsufficientPointsError from "../errors/insufficient-points.error";
 import CustomerNotFound from "../errors/customer-not-found.error";
-import { customers, findCustomer } from "../services/customer.service";
+import { findCustomer } from "../services/customer.service";
 
+// Logic to transfer points
 const transferPoints = (req: Request, res: Response) => {
   const { fromCustomerId, toCustomerId, points } = req.body;
   const fromCustomer = findCustomer(fromCustomerId);

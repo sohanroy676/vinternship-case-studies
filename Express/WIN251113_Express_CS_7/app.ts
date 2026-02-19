@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { body, validationResult } from "express-validator";
 
+// Validation rules
 const applicationValidation = [
   body("name").isString().notEmpty().withMessage("Name is required"),
   body("email").isEmail().withMessage("Valid email is required"),

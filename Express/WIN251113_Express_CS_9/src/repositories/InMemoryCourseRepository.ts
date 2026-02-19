@@ -1,8 +1,8 @@
-// repositories/InMemoryCourseRepository.ts
 import { ICourseRepository } from "./interfaces/ICourseRepository";
 import { Course } from "../models/Course";
 
 export class InMemoryCourseRepository implements ICourseRepository {
+  // Mock data for testing
   private courses: Course[] = [
     { id: "1", name: "C", capacity: 100, students: [] },
     { id: "2", name: "Python", capacity: 60, students: [] },

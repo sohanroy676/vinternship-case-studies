@@ -1,6 +1,5 @@
 import { Token } from "typedi";
 
-// notifications/NotificationService.ts
 export interface NotificationService {
   send(to: string, message: string): Promise<void>;
 }
